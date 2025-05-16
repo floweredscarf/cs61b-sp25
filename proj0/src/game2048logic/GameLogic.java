@@ -85,12 +85,24 @@ public class GameLogic {
     public static void tilt(int[][] board, Side side) {
         // TODO: fill this in in task 7
         if (side == Side.EAST) {
+            rotateLeft(board);
+            tiltUp(board);
+            rotateRight(board);
             return;
         } else if (side == Side.WEST) {
+            rotateRight(board);
+            tiltUp(board);
+            rotateLeft(board);
             return;
         } else if (side == Side.SOUTH) {
+            rotateLeft(board);
+            rotateLeft(board);
+            tiltUp(board);
+            rotateRight(board);
+            rotateRight(board);
             return;
         } else {
+            tiltUp(board);
             return;
         }
     }
