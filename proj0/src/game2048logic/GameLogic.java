@@ -4,6 +4,8 @@ import game2048rendering.Side;
 import static game2048logic.MatrixUtils.rotateLeft;
 import static game2048logic.MatrixUtils.rotateRight;
 
+import org.checkerframework.checker.units.qual.radians;
+
 /**
  * @author  Josh Hug
  */
@@ -51,6 +53,11 @@ public class GameLogic {
      */
     public static void tiltColumn(int[][] board, int c) {
         // TODO: fill this in in task 5
+        int minR = 0;
+        for (int r = 0; r < 4; r++)
+        {
+            minR += moveTileUpAsFarAsPossible(board, r, c, minR);
+        }
         return;
     }
 
